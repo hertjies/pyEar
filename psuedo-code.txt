@@ -1,0 +1,17 @@
+pyEar
+=====
+The purpose of pyEar is to help develop the user's ear for relative pitch.
+
+Program runs
+    The program displays a menu
+        The user choose to guess a random note or a selected note form a list of major and minor notes or quit the program.
+            Choose random note: the program selects a random note according to ?hz and ?octave and replays this note every few seconds until the user's guess.
+                Once the user enters their guess from the keyboard key the program plays the question note back and then the user's choice
+                The program then displays the result of the guess.
+                If the user guessed incorrect then the program asked the user to try and guess again.
+                If the user guessed correctly the program then asks if the user wants the replay the same note, another random one (this includes the same note), or go back to the menu
+            Choose a selected note
+                The program displays the selected note and plays the note back every few seconds
+                the user press keyboard key to change the selected note or esc to go back to the menu
+            At anytime the user can hit esc to go back to the menu
+    
