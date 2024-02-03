@@ -1,0 +1,10 @@
+Color1 f6cd26
+Color2 ac6b26
+Color3 563226
+Color4 331c17
+Color5 bb7f57
+Color6 725956
+Color7 393939
+Color8 202020
+
+FontFile FreeMono.ttf
