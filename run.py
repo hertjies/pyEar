@@ -1,4 +1,4 @@
-import src.main
+"""pyEar"""
 
 if __name__ == "__main__":
     print("I am main")
