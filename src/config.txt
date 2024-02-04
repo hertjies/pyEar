@@ -6,5 +6,24 @@ Color5 bb7f57
 Color6 725956
 Color7 393939
 Color8 202020
-
+FocusLock True
 FontFile FreeMono.ttf
+KeyMapC c
+KeyMapC# c#
+KeyMapDb db
+KeyMapD d
+KeyMapD# d#
+KeyMapEb eb
+KeyMapE e
+KeyMapF f
+KeyMapF# f#
+KeyMapGb gb
+KeyMapG g
+KeyMapG# g#
+KeyMapAb ab
+KeyMapA a
+KeyMapA# a#
+KeyMapBb bb
+KeyMapB b
+WindowHeight 480
+WindowWidth 640
