@@ -1,0 +1,17 @@
+Modules:
+========
+Logging - Tool for logging and exception handling
+Global Constants - File with constants and sane defaults
+Loader - Load values from files ie config, scores, sounds
+Config - Config store and loader
+
+Setup - Init stage of program
+
+Menu - Screen Main menu 
+Game Note Streak - Screen
+Game Guess Note -  Screen
+Game Note Select - Screen
+Display High Scores - Screen
+Enter High Score - Screen
+
+Exit
