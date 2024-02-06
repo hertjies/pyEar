@@ -1,9 +1,10 @@
-Modules:
+Features:
 ========
+Tests -  Unit tests
 Logging - Tool for logging and exception handling
 Global Constants - File with constants and sane defaults
-Loader - Load values from files ie config, scores, sounds
 Config - Config store and loader
+Loader - Load values from files ie config, scores, screens, sounds
 
 Setup - Init stage of program
 

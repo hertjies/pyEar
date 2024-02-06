@@ -1,6 +1,6 @@
-import pytest
 from src.config import Config
 
-def test_config():
-    this_test_config = Config()
-    assert this_test_config.load_config_from_file() is True
+def test_read_from_file():
+    this_config = Config()
+    assert this_config.__load_from_file() is type(list)
+

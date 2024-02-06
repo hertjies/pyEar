@@ -26,3 +26,6 @@ Program runs
             Choose to display the note steak top 10 high scores
             Choose to exit the program
             At anytime the user can hit esc to go back to the menu
+
+Extra idea:
+Load song from midi and play back during note streak
