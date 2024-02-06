@@ -12,4 +12,4 @@ class Config():
         '''
         Load configuration from a local file
         '''
-        pass
+        return True
