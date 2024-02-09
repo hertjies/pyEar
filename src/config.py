@@ -2,6 +2,8 @@
 Module for handling configuration
 """
 
+from src.global_constants import default_configutaion
+
 class Config():
     """
     Configuration store
@@ -31,11 +33,25 @@ class Config():
 
     def __build_config(self) -> dict:
         """Build configuration from user values
-        Substitute invalid values with those from global contants
+        Substitute invalid values with those from global constants
 
         Returns:
             dict: key - value configuration
         """
 
-        file_config = self.__load_from_file()
-        print(file_config)
+        raw_file_config = self.__load_from_file()
+        configuration = {}
+        for setting in raw_file_config:
+            setting_list = setting.split(" ")
+            configuration[setting_list[0]] = setting_list[1]
+
+        print(configuration)
+
+    def get_config(self) -> dict:
+        pass
+
+    def set_config(self) -> bool:
+        pass
+
+    def write_to_file(self) -> bool:
+        pass
