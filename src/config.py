@@ -18,29 +18,38 @@ class Config():
         self.__build_config()
 
 
-    def __load_from_file(self, data_file: str) -> list:
+    def load_from_file(self, data_file: str) -> list:
         """
         Load data from a local file
+
+        Protected scope
 
         Returns:
             list: items are made up of each line from file
         """
         data = list()
-        with open(data_file) as file:
-            data = file.readlines()
 
-        formatted_data = []
-        for item in data:
-            formatted_data.append(item.strip())
+        try:
+            with open(data_file) as file:
+                data = file.readlines()
 
-        return formatted_data
+            formatted_data = []
+            for item in data:
+                formatted_data.append(item.strip())
+
+            return formatted_data
+        except Exception as e:
+            logging.error(f"Cannot read file '{data_file}': {e}")
+        else:
+            return []
 
 
-    def write_to_file(self, config_file = "") -> bool:
+    def write_to_file(self, config_file = "", configuration = {}) -> bool:
         """Write configuration to file
 
         Args:
             config_file (str, optional): Location and name of file to write to. Defaults to "".
+            configuration (dict, optional): Dictionary of data to write
 
         Returns:
             bool: True is successful, else False
@@ -48,9 +57,12 @@ class Config():
         if config_file == "":
             config_file = self.__config_file
 
+        if configuration == "":
+            configuration = self.configuration
+
         try:
             with open(config_file, 'w') as file:
-                for key, value in self.configuration.items():
+                for key, value in configuration.items():
                     file.write(f"{key} {value}\n")
             return True
         except Exception as e:
@@ -62,10 +74,12 @@ class Config():
         """Build configuration from user values
         Substitute invalid values with those from global constants
 
+        Protected scope
+
         Set configuration for class
         """
 
-        raw_file_config = self.__load_from_file(self.__config_file)
+        raw_file_config = self.load_from_file(self.__config_file)
         raw_file_config_formatted = {}
         for item in raw_file_config:
             setting = item.split(" ")
