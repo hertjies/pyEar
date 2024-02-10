@@ -35,6 +35,27 @@ class Config():
         return formatted_data
 
 
+    def write_to_file(self, config_file = "") -> bool:
+        """Write configuration to file
+
+        Args:
+            config_file (str, optional): Location and name of file to write to. Defaults to "".
+
+        Returns:
+            bool: True is successful, else False
+        """
+        if config_file == "":
+            config_file = self.__config_file
+
+        try:
+            with open(config_file, 'w') as file:
+                for key, value in self.configuration:
+                    file.write(f"{key} {value}\n")
+            return True
+        except:
+            return False
+
+
     def __build_config(self) -> None:
         """Build configuration from user values
         Substitute invalid values with those from global constants
@@ -62,12 +83,33 @@ class Config():
 
 
     def get_config(self) -> dict:
+        """Return the class configuration
+
+        Returns:
+            dict: configuration
+        """
         return self.configuration
 
 
-    def set_config(self, configuration, value) -> bool:
-        pass
+    def set_config(self, configuration: str, value: str) -> bool:
+        """Set configuration if valid
+
+        Args:
+            configuration (str): configuration key to set
+            value (str): value to set for the configuration
+
+        Returns:
+            bool: True is valid, False if invalid
+        """
+        if configuration.upper() in global_constants.default_configuration:
+            if value != "":
+                self.configuration[configuration] = value
+                return True
+            else:
+                print(f"ERROR: {configuration} value cannot be empty")
+                return False
+        else:
+            print(f"ERROR: {configuration} not in set of valid configurations")
+            return False
 
 
-    def write_to_file(self) -> bool:
-        pass
