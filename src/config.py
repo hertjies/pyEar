@@ -2,6 +2,7 @@
 Module for handling configuration
 """
 
+import logging
 import src.global_constants as global_constants
 
 class Config():
@@ -49,10 +50,11 @@ class Config():
 
         try:
             with open(config_file, 'w') as file:
-                for key, value in self.configuration:
+                for key, value in self.configuration.items():
                     file.write(f"{key} {value}\n")
             return True
-        except:
+        except Exception as e:
+            logging.warning(f"Unable to write configuration to file: {e}")
             return False
 
 
@@ -70,7 +72,7 @@ class Config():
             if len(setting) == 2:
                 raw_file_config_formatted[setting[0].upper()] = setting[1]
             else:
-                print(f"WARNING: Configuration file '{self.__config_file}' format error. Issues will be substituted with defaults")
+                logging.warning(f"Configuration file '{self.__config_file}' format error. Issues will be substituted with defaults")
 
         configuration = {}
         for item_key, item_value in global_constants.default_configuration.items():
@@ -106,10 +108,10 @@ class Config():
                 self.configuration[configuration] = value
                 return True
             else:
-                print(f"ERROR: {configuration} value cannot be empty")
+                logging.error(f"{configuration} value cannot be empty")
                 return False
         else:
-            print(f"ERROR: {configuration} not in set of valid configurations")
+            logging.error(f"{configuration} not in set of valid configurations to be set")
             return False
 
 
