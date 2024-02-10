@@ -10,9 +10,9 @@ class Config():
     """
 
     def __init__(self, config_file = "") -> None:
-        self.config_file = config_file
-        if self.config_file == "":
-            self.config_file = global_constants.default_configuration_file
+        self.__config_file = config_file
+        if self.__config_file == "":
+            self.__config_file = global_constants.default_configuration_file
         self.configuration = {}
         self.__build_config()
 
@@ -34,22 +34,22 @@ class Config():
 
         return formatted_data
 
-    def __build_config(self) -> dict:
+
+    def __build_config(self) -> None:
         """Build configuration from user values
         Substitute invalid values with those from global constants
 
-        Returns:
-            dict: key - value configuration
+        Set configuration for class
         """
 
-        raw_file_config = self.__load_from_file(self.config_file)
+        raw_file_config = self.__load_from_file(self.__config_file)
         raw_file_config_formatted = {}
         for item in raw_file_config:
             setting = item.split(" ")
             if len(setting) == 2:
                 raw_file_config_formatted[setting[0].upper()] = setting[1]
             else:
-                print(f"WARNING: Configuration file '{self.config_file}' format error. Issues will be substituted with defaults")
+                print(f"WARNING: Configuration file '{self.__config_file}' format error. Issues will be substituted with defaults")
 
         configuration = {}
         for item_key, item_value in global_constants.default_configuration.items():
@@ -58,13 +58,16 @@ class Config():
             else:
                 configuration[item_key] = global_constants.default_configuration[item_key]
 
-        print(configuration)
+        self.configuration = configuration
+
 
     def get_config(self) -> dict:
         return self.configuration
 
-    def set_config(self) -> bool:
+
+    def set_config(self, configuration, value) -> bool:
         pass
+
 
     def write_to_file(self) -> bool:
         pass
