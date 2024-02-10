@@ -3,8 +3,9 @@ Global Constants
 """
 
 # Sane default configuration
+default_configuration_file = "src/config.txt"
 
-default_configutaion= {
+default_configuration= {
     "COLOR_1": "f6cd26",
     "COLOR_2": "ac6b26",
     "COLOR_3": "563226",

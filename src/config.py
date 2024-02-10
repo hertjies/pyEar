@@ -2,34 +2,37 @@
 Module for handling configuration
 """
 
-from src.global_constants import default_configutaion
+import src.global_constants as global_constants
 
 class Config():
     """
     Configuration store
     """
 
-    def __init__(self, config_file = "src/config.txt") -> None:
+    def __init__(self, config_file = "") -> None:
         self.config_file = config_file
+        if self.config_file == "":
+            self.config_file = global_constants.default_configuration_file
+        self.configuration = {}
         self.__build_config()
 
 
-    def __load_from_file(self) -> list:
+    def __load_from_file(self, data_file: str) -> list:
         """
-        Load configuration from a local file
+        Load data from a local file
 
         Returns:
-            str: Blob of text
+            list: items are made up of each line from file
         """
-        file_config = list()
-        with open(self.config_file) as file:
-            file_config = file.readlines()
+        data = list()
+        with open(data_file) as file:
+            data = file.readlines()
 
-        formatted_config = []
-        for config in file_config:
-            formatted_config.append(config.strip().upper())
+        formatted_data = []
+        for item in data:
+            formatted_data.append(item.strip())
 
-        return formatted_config
+        return formatted_data
 
     def __build_config(self) -> dict:
         """Build configuration from user values
@@ -39,16 +42,26 @@ class Config():
             dict: key - value configuration
         """
 
-        raw_file_config = self.__load_from_file()
+        raw_file_config = self.__load_from_file(self.config_file)
+        raw_file_config_formatted = {}
+        for item in raw_file_config:
+            setting = item.split(" ")
+            if len(setting) == 2:
+                raw_file_config_formatted[setting[0].upper()] = setting[1]
+            else:
+                print(f"WARNING: Configuration file '{self.config_file}' format error. Issues will be substituted with defaults")
+
         configuration = {}
-        for setting in raw_file_config:
-            setting_list = setting.split(" ")
-            configuration[setting_list[0]] = setting_list[1]
+        for item_key, item_value in global_constants.default_configuration.items():
+            if raw_file_config_formatted.get(item_key) is not None and raw_file_config_formatted.get(item_key) != "":
+                configuration[item_key] = raw_file_config_formatted[item_key]
+            else:
+                configuration[item_key] = global_constants.default_configuration[item_key]
 
         print(configuration)
 
     def get_config(self) -> dict:
-        pass
+        return self.configuration
 
     def set_config(self) -> bool:
         pass
