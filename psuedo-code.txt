@@ -4,8 +4,18 @@ The purpose of pyEar is to help develop the user's ear for relative pitch.
 
 Program runs
     The program displays a menu
-        The user choose to guess a random note or a selected note form a list of major and minor notes or quit the program.
-            Choose random note: the program selects a random note according to ?hz and ?octave and replays this note every few seconds until the user's guess.
+        The user to:
+            Choose note streak:
+                The program selects a random note according to ?hz and ?octave and replays this note 3 times.
+                Once the user enters their guess from the keyboard key the program plays the question note back and then the user's choice
+                If the user guessed correctly the program then choose another note for the user to guess.
+                This cycle continues until the user guesses wrong.
+                If the user guessed incorrect then the program then displays the user's score
+                If the user is in the top 10 best scores, the program askes for the user's name and adds it to the high score
+                The program then displays the top 10 scores and flashes the user's rank.
+                Then program then asks if the user wants play again or return to the menu.
+            Choose random note: 
+                The program selects a random note according to ?hz and ?octave and replays this note every few seconds until the user's guess.
                 Once the user enters their guess from the keyboard key the program plays the question note back and then the user's choice
                 The program then displays the result of the guess.
                 If the user guessed incorrect then the program asked the user to try and guess again.
@@ -13,5 +23,9 @@ Program runs
             Choose a selected note
                 The program displays the selected note and plays the note back every few seconds
                 the user press keyboard key to change the selected note or esc to go back to the menu
+            Choose to display the note steak top 10 high scores
+            Choose to exit the program
             At anytime the user can hit esc to go back to the menu
-    
+
+Extra idea:
+Load song from midi and play back during note streak

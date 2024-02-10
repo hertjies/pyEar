@@ -1,0 +1,18 @@
+Features:
+========
+Tests -  Unit tests
+Logging - Tool for logging and exception handling
+Global Constants - File with constants and sane defaults
+Config - Config store and loader
+Loader - Load values from files ie config, scores, screens, sounds
+
+Setup - Init stage of program
+
+Menu - Screen Main menu 
+Game Note Streak - Screen
+Game Guess Note -  Screen
+Game Note Select - Screen
+Display High Scores - Screen
+Enter High Score - Screen
+
+Exit
