@@ -1,6 +1,6 @@
-# pyEar
+# pySpaceInvadEars
 ---
-The purpose of pyEar is to help develop the user's ear for relative pitch.
+The purpose of pySpaceInvadEars is to help develop the user's ear for relative pitch.
 
 ## Dependencies
 The project relies on the following:

@@ -5,8 +5,8 @@ def test_default_configuration_file():
     assert (
         global_constants.default_configuration_file is not None
     ), "Default configuration file constant is None"
-    assert (
-        isinstance(global_constants.default_configuration_file, str)
+    assert isinstance(
+        global_constants.default_configuration_file, str
     ), "Default configuration file constant is not a str"
     assert (
         global_constants.default_configuration_file != ""
@@ -48,12 +48,8 @@ def test_default_configuration_values_available():
 
     for const in values:
         value = global_constants.default_configuration.get(const)
-        assert (
-            value is not None
-        ), f"Default configuration contant {value} is None"
-        assert (
-            isinstance(value, str)
+        assert value is not None, f"Default configuration contant {value} is None"
+        assert isinstance(
+            value, str
         ), f"Default configuration contant {value} is not a str"
-        assert (
-            value != ""
-        ), f"Default configuration contant {value} is empty"
+        assert value != "", f"Default configuration contant {value} is empty"

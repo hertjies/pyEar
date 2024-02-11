@@ -1,4 +1,4 @@
-"""pyEar"""
+"""pySpaceInvadEars"""
 import logging
 import src.config as Config
 
