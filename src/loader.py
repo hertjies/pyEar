@@ -3,6 +3,7 @@ Module for loading and initialising instances of external program requirements f
 ie: Configuration, Player data (scores), Assets (Sound, GFX)
 """
 
+from config import Config
 
 class Loader:
     """
@@ -12,6 +13,7 @@ class Loader:
     def __init__(self) -> None:
         self.config = self.load_instance_config()
         self.scores = self.load_instance_scores()
+        self.font = self.load_instance_font()
         self.sound = self.load_instance_sound()
         self.graphics = self.load_instance_graphics()
 
@@ -26,6 +28,13 @@ class Loader:
     def load_instance_scores(self) -> None:
         """
         Load a player score instance
+        """
+        return True
+
+
+    def load_instance_font(self) -> None:
+        """
+        Load a font instance
         """
         return True
 
