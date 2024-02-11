@@ -1,6 +1,6 @@
-pyEar
+pySpaceInvadEars
 =====
-The purpose of pyEar is to help develop the user's ear for relative pitch.
+The purpose of pySpaceInvadEars is to help develop the user's ear for relative pitch while playing a game.
 
 Program runs
     The program displays a menu
@@ -14,7 +14,7 @@ Program runs
                 If the user is in the top 10 best scores, the program askes for the user's name and adds it to the high score
                 The program then displays the top 10 scores and flashes the user's rank.
                 Then program then asks if the user wants play again or return to the menu.
-            Choose random note: 
+            Choose random note:
                 The program selects a random note according to ?hz and ?octave and replays this note every few seconds until the user's guess.
                 Once the user enters their guess from the keyboard key the program plays the question note back and then the user's choice
                 The program then displays the result of the guess.

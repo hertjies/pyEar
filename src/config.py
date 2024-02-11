@@ -30,7 +30,7 @@ class Config():
         data = list()
 
         try:
-            with open(data_file) as file:
+            with open(data_file, "r") as file:
                 data = file.readlines()
 
             formatted_data = []
@@ -40,7 +40,6 @@ class Config():
             return formatted_data
         except Exception as e:
             logging.error(f"Cannot read file '{data_file}': {e}")
-        else:
             return []
 
 
