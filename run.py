@@ -1,6 +1,6 @@
 """pySpaceInvadEars"""
 import logging
-import src.config as Config
+import src.main as Main
 
 logging.basicConfig(
     filename="debug.log",
@@ -11,7 +11,4 @@ logging.basicConfig(
 )
 
 if __name__ == "__main__":
-    print("I am main")
-
-    myconf = Config.Config()
-
+    pass
