@@ -5,11 +5,11 @@ ie: Configuration, Player data (scores), Assets (Sound, GFX)
 import logging
 from src.config import Config
 
+
 class Loader:
     """
     Main instance loader class
     """
-
     config = None
     pygame = None
     scores = None
